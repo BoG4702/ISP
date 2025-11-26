@@ -9,7 +9,12 @@
 #   # Для дебага:
 #   sudo bash -x ./m1_isp.sh
 
-set -euo pipefail
+set -e
+
+# Включаем pipefail, только если оболочка его поддерживает
+if ( set -o 2>/dev/null | grep -q 'pipefail' ); then
+  set -o pipefail
+fi
 
 ### ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
 
